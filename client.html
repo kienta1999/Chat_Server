@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<title>Multi-room Chat Server</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+		integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+		integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="container">
+		<h1><i class="fas fa-smile"></i> GroupChat</h1>
+		<div class="jumbotron">
+			<!-- <button type="button" class="btn btn-secondary btn-sm">Leave Room</button> -->
+
+			<div id="username_needed">
+				<p></p>
+				<label for="username">Username: </label>
+				<input type="text" name="username" id="username" placeholder="Enter username" required />
+				<button type="submit" class="btn btn-outline-secondary btn-sm" id="new_user_btn">Join Chat</button>
+				<br>
+			</div>
+			<div id="username_not_needed">
+
+				<h2 id="hello"> Hello, </h2>
+				<label for="room_input">New Room: </label>
+				<input type="text" name="new_room" id="room_input" placeholder="Room Name" required/>
+				<input type="password" name="password" id="password" placeholder="Password (optional)" />
+				<button id="create_room" class="btn btn-outline-secondary btn-sm">Create Room</button>
+				<p></p>
+				<div class="row">
+					<div class="col-3" id="roomlog"></div>
+					<div class="col-3">
+						<h3><i class="fas fa-comments"></i> <span id="current_room">GroupChat</span></h3>
+						<p></p>
+						<h3><i class="fas fa-users"></i> Users</h3>
+						<ul id="users">
+						</ul>
+					</div>
+					<div class="col-6">
+						<div id="chatlog"></div>
+						<div class="chat-text-container">
+							<input id="message_input" type="text" placeholder="Enter Message" required/>
+							<button type="button" id="send_message" class="btn btn-outline-primary btn-sm"><i class="fas fa-paper-plane"></i> Send</button>
+						</div>
+						<p>or</p>
+						<div class="private-message">
+							<label>Send To: </label><input id="send_to_" type="text" placeholder="Enter Username" required/>
+							<p>
+							<label>Messages: </label><input id="private_dms" type="text" placeholder="Private Messages" required/>
+							<button type="button" id="send_private_dms" class="btn btn-outline-primary btn-sm"><i class="fas fa-paper-plane"></i></button>
+						</div>
+
+						<br>
+
+						<div class="block-user">
+							<label>Block: </label><input id="blocked_username" type="text" placeholder="Enter Usernames Here" required/>
+							<button type="button" id="block_btn" class="btn btn-outline-danger btn-sm"><i class="fas fa-times-circle"></i></button>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-popup" id="myForm">
+					  <h2>Password validation</h2>
+					  <button type="button" class="close-new-event-btn cancel" aria-label="Close" id="close-form">
+						<span aria-hidden="true">&times;</span>
+					  </button>
+					  <label for="psw"><b>Password</b></label>
+					  <input type="password" placeholder="Enter Room Password" name="psw" id = "psw" required>
+					  <button type="submit" class="btn btn-outline-secondary btn-sm" id="submit-form">Enter</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<script src="client.js"></script>
+	</footer>
+</body>
+</html>
