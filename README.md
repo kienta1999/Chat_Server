@@ -1,12 +1,17 @@
-# CSE330
-488493
-
-488494
+# Chat Server
 
 http://ec2-13-250-43-149.ap-southeast-1.compute.amazonaws.com:3456/
 (replace the address with your instance's address)
 
 The page is served in port 3456. 
+
+# Basic functionaily:
+- Users can create chat rooms with an arbitrary room name  
+- Users can join an arbitrary chat room  
+- The chat room displays all users currently in the room  
+- A private room can be created that is password protected  
+- A user's message shows their username and is sent to everyone in the room  
+- Users can send private messages to another user in the same room  
 
 # Creative portion:
 ## 1. Block Specific Users
@@ -39,10 +44,3 @@ created, the webpage will clear your inputs.
 3. express
 4. bad-words
 5. node-emoji
-
-
-
-### Grading Feedback
--2pts users still listed as being in room after leaving
-
--5pts creators of chat rooms can't kick or ban users
